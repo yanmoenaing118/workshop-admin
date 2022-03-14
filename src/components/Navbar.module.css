@@ -1,0 +1,12 @@
+.Navbar {
+    padding: 2rem 0;
+}
+.Navbar > ul > li > a {
+    padding: .3rem 1rem;
+    display: block;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
