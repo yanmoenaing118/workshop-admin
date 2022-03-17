@@ -17,7 +17,7 @@ ReactDOM.render(
         <Route path="dramas" element={<Dramas />} />
         <Route path="songs" element={<Songs />} />
       </Route>
-      <Route path="login" element={<Login />}></Route>
+      <Route path="login" element={<Login />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
