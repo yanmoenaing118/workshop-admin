@@ -1,7 +1,10 @@
 .Logo {
     background-color: rgb(136, 165, 190);
-    padding: 2rem .5rem;
     color: #fff;
     font-size: 1.6rem;
     text-transform: uppercase;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

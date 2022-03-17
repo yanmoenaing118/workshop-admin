@@ -1,28 +1,20 @@
-import './App.css';
-import { Outlet, useLocation } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Logo from "./components/Logo";
-import AppBar from "./components/AppBar";
-
+import "./styles/App.css";
+import Layout from "./components/Layout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dramas from "./routes/dramas";
+import Songs from "./routes/songs";
+import Home from "./routes/home";
 function App() {
-  const location = useLocation();
-
   return (
-    <>
-      <div className='App'>
-        <sidebar className="sidebar">
-          <Logo />
-          <Navbar />
-        </sidebar>
-        <main className='main'>
-          <AppBar />
-          <section className='current-route'>{JSON.stringify(location)}</section>
-          <section className='main-content'>
-            <Outlet />
-          </section>
-        </main>
-      </div>
-    </>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="dramas" element={<Dramas />} />
+          <Route path="songs" element={<Songs />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

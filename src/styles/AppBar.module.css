@@ -1,8 +1,10 @@
 .AppBar {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1);
-    padding: 1rem 1.5rem;
+    height: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    padding: 0 2rem;
 }
 
 .account {

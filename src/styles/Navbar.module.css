@@ -1,6 +1,11 @@
 .Navbar {
     padding: 2rem 0;
 }
+
+.Navbar ul {
+    list-style-type: none;
+}
+
 .Navbar > ul > li > a {
     padding: .3rem 1rem;
     display: block;
