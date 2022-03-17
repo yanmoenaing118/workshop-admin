@@ -9,17 +9,21 @@ import Songs from "./routes/songs";
 import Home from "./routes/home";
 import Login from "./routes/login";
 
+import StoreProvider from "./lib/store";
+
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route index element={<Home />} />
-        <Route path="dramas" element={<Dramas />} />
-        <Route path="songs" element={<Songs />} />
-      </Route>
-      <Route path="login" element={<Login />} />
-    </Routes>
-  </BrowserRouter>,
+  <StoreProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<Home />} />
+          <Route path="dramas" element={<Dramas />} />
+          <Route path="songs" element={<Songs />} />
+        </Route>
+        <Route path="login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
+  </StoreProvider>,
   document.getElementById("root")
 );
 
