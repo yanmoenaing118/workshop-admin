@@ -1,20 +1,12 @@
 import "./styles/App.css";
 import Layout from "./components/Layout";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dramas from "./routes/dramas";
-import Songs from "./routes/songs";
-import Home from "./routes/home";
+import { Outlet } from "react-router-dom";
+
 function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="dramas" element={<Dramas />} />
-          <Route path="songs" element={<Songs />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <Layout>
+      <Outlet />
+    </Layout>
   );
 }
 
