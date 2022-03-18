@@ -6,12 +6,17 @@ import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import MyModal from "./../../components/Modal";
 import DramaForm from "./../../components/DramaForm";
+import useDramas from "./../../lib/useDramas";
 
 export default function DramasPage() {
   const [show, setShow] = useState(false);
+  const { data, loading, postData, deleteData } = useDramas();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleSubmit = (body) => postData(body);
+  const deleteOne = (id) => deleteData(id);
 
   return (
     <Container fluid="md" style={{ padding: "20px" }}>
@@ -25,20 +30,20 @@ export default function DramasPage() {
           </Button>
         </Col>
       </Row>
-      <DramasList list={[1, 2, 3, 4]} />
+      {!loading && <DramasList list={data.dramas} onDelete={deleteOne} />}
       <MyModal
         title="Add New Drama"
         show={show}
         handleClose={handleClose}
         handleShow={handleShow}
       >
-        <DramaForm />
+        <DramaForm onSubmit={handleSubmit} />
       </MyModal>
     </Container>
   );
 }
 
-function DramasList({ list }) {
+function DramasList({ list, onDelete }) {
   return (
     <Table striped bordered hover>
       <thead>
@@ -51,12 +56,12 @@ function DramasList({ list }) {
       </thead>
       <tbody>
         {list.map((item) => (
-          <tr key={item}>
-            <td>The King's effection</td>
-            <td>Someone</td>
-            <td>Park Eun Bin</td>
+          <tr key={item._id}>
+            <td>{item.title}</td>
+            <td>{item.actor}</td>
+            <td>{item.actress}</td>
             <td>
-              <Button>Delete</Button>
+              <Button onClick={() => onDelete(item._id)}>Delete</Button>
             </td>
           </tr>
         ))}

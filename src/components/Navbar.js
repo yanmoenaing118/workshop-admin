@@ -4,7 +4,7 @@ import Logo from "./Logo";
 import useAuth from "./../lib/useAuth";
 
 export default function Navbar() {
-  const { logout } = useAuth();
+  const { token, logout } = useAuth();
   return (
     <>
       <Logo />
@@ -19,7 +19,7 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <button onClick={logout}>log out</button>
+        {token && <button onClick={logout}>log out</button>}
       </nav>
     </>
   );

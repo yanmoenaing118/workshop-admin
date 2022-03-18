@@ -8,6 +8,7 @@ import Dramas from "./routes/dramas";
 import Songs from "./routes/songs";
 import Home from "./routes/home";
 import Login from "./routes/login";
+import RequireAuth from "./components/RequireAuth";
 
 import StoreProvider from "./lib/store";
 
@@ -15,7 +16,14 @@ ReactDOM.render(
   <StoreProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
+        <Route
+          path="/"
+          element={
+            <RequireAuth>
+              <App />
+            </RequireAuth>
+          }
+        >
           <Route index element={<Home />} />
           <Route path="dramas" element={<Dramas />} />
           <Route path="songs" element={<Songs />} />

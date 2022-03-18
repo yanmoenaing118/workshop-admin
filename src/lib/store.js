@@ -15,7 +15,7 @@ export const LOGOUT = "LOGOUT";
 const reducer = (state, action) => {
   switch (action.type) {
     case LOGIN:
-      return { ...state, token: "eyAbcdafdf" };
+      return { ...state, token: action.payload };
     case LOGOUT:
       return { ...state, token: null };
     default:
